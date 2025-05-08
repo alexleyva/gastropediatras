@@ -1,3 +1,4 @@
+
 "use client";
 
 import type { Control } from "react-hook-form";
@@ -25,7 +26,7 @@ export function AppointmentSection({ control }: AppointmentSectionProps) {
           name="appointmentDetails.appointmentDate"
           label="Appointment Date"
           required
-          renderInput={({ field }) => (
+          renderInput={(field) => (
             <Popover>
               <PopoverTrigger asChild>
                 <Button
@@ -56,7 +57,7 @@ export function AppointmentSection({ control }: AppointmentSectionProps) {
           name="appointmentDetails.appointmentTime"
           label="Appointment Time"
           required
-          renderInput={({ field }) => (
+          renderInput={(field) => (
             <div className="relative">
                <Input type="time" {...field} className="pr-10" />
                <Clock className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -68,25 +69,25 @@ export function AppointmentSection({ control }: AppointmentSectionProps) {
           name="appointmentDetails.fileNumber"
           label="File Number"
           required
-          renderInput={({ field }) => <Input {...field} placeholder="e.g., PN-00123" />}
+          renderInput={(field) => <Input {...field} placeholder="e.g., PN-00123" />}
         />
         <FormInputWrapper
           control={control}
           name="appointmentDetails.insuranceName"
           label="Insurance Name"
-          renderInput={({ field }) => <Input {...field} placeholder="e.g., HealthGuard Plus" />}
+          renderInput={(field) => <Input {...field} placeholder="e.g., HealthGuard Plus" />}
         />
         <FormInputWrapper
           control={control}
           name="appointmentDetails.pediatricianName"
           label="Pediatrician's Name"
-          renderInput={({ field }) => <Input {...field} placeholder="e.g., Dr. Emily Carter" />}
+          renderInput={(field) => <Input {...field} placeholder="e.g., Dr. Emily Carter" />}
         />
         <FormInputWrapper
           control={control}
           name="appointmentDetails.referringPerson"
           label="Referring Person"
-          renderInput={({ field }) => <Input {...field} placeholder="e.g., Dr. John Smith or Self-referred" />}
+          renderInput={(field) => <Input {...field} placeholder="e.g., Dr. John Smith or Self-referred" />}
         />
       </div>
     </SectionCard>

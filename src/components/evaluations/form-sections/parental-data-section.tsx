@@ -1,3 +1,4 @@
+
 "use client";
 
 import type { Control } from "react-hook-form";
@@ -21,32 +22,32 @@ function ParentSubSection({ control, parentType }: { control: Control<Evaluation
           name={`${parentType}.fullName`}
           label="Full Name"
           required
-          renderInput={({ field }) => <Input {...field} placeholder="e.g., Jane Doe" />}
+          renderInput={(field) => <Input {...field} placeholder="e.g., Jane Doe" />}
         />
         <FormInputWrapper
           control={control}
           name={`${parentType}.age`}
           label="Age"
-          renderInput={({ field }) => <Input type="number" {...field} placeholder="e.g., 35" onChange={e => field.onChange(e.target.value === '' ? undefined : Number(e.target.value))} value={field.value ?? ""} />}
+          renderInput={(field) => <Input type="number" {...field} placeholder="e.g., 35" onChange={e => field.onChange(e.target.value === '' ? undefined : Number(e.target.value))} value={field.value ?? ""} />}
         />
         <FormInputWrapper
           control={control}
           name={`${parentType}.address`}
           label="Address"
-          renderInput={({ field }) => <Input {...field} placeholder="e.g., 123 Main St, Anytown" />}
+          renderInput={(field) => <Input {...field} placeholder="e.g., 123 Main St, Anytown" />}
           className="md:col-span-2"
         />
         <FormInputWrapper
           control={control}
           name={`${parentType}.phone`}
           label="Phone Number"
-          renderInput={({ field }) => <Input type="tel" {...field} placeholder="e.g., (555) 123-4567" />}
+          renderInput={(field) => <Input type="tel" {...field} placeholder="e.g., (555) 123-4567" />}
         />
         <FormInputWrapper
           control={control}
           name={`${parentType}.occupation`}
           label="Occupation"
-          renderInput={({ field }) => <Input {...field} placeholder="e.g., Teacher" />}
+          renderInput={(field) => <Input {...field} placeholder="e.g., Teacher" />}
         />
       </div>
     </div>

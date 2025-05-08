@@ -1,3 +1,4 @@
+
 "use client";
 
 import type { Control, UseFormSetValue } from "react-hook-form";
@@ -40,21 +41,21 @@ export function PatientDataSection({ control, setValue }: PatientDataSectionProp
           name="patientData.fullName"
           label="Full Name"
           required
-          renderInput={({ field }) => <Input {...field} placeholder="e.g., Alex Johnson" />}
+          renderInput={(field) => <Input {...field} placeholder="e.g., Alex Johnson" />}
         />
         <FormInputWrapper
           control={control}
           name="patientData.identificationNumber"
           label="Identification Number"
           required
-          renderInput={({ field }) => <Input {...field} placeholder="e.g., ID123456789" />}
+          renderInput={(field) => <Input {...field} placeholder="e.g., ID123456789" />}
         />
         <FormInputWrapper
           control={control}
           name="patientData.dateOfBirth"
           label="Date of Birth"
           required
-          renderInput={({ field }) => (
+          renderInput={(field) => (
             <Popover>
               <PopoverTrigger asChild>
                 <Button
@@ -72,7 +73,10 @@ export function PatientDataSection({ control, setValue }: PatientDataSectionProp
                 <Calendar
                   mode="single"
                   selected={field.value}
-                  onSelect={(date) => handleDateOfBirthChange(date)}
+                  onSelect={(date) => {
+                    field.onChange(date); // Ensure RHF's onChange is called
+                    handleDateOfBirthChange(date);
+                  }}
                   initialFocus
                   captionLayout="dropdown-buttons"
                   fromYear={1900}
@@ -87,7 +91,7 @@ export function PatientDataSection({ control, setValue }: PatientDataSectionProp
           control={control}
           name="patientData.age"
           label="Age (Years)"
-          renderInput={({ field }) => (
+          renderInput={(field) => (
             <Input 
               {...field} 
               type="number" 
