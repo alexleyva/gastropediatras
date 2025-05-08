@@ -52,7 +52,10 @@ export function LoginForm() {
         title: "Login Successful",
         description: "Welcome back!",
       });
-      localStorage.setItem("isAuthenticated", "true"); // Mock auth state
+      localStorage.setItem("isAuthenticated", "true"); // For client-side checks in (app)/layout.tsx
+      // Set a cookie for server-side checks in middleware.ts
+      // Expires in 7 days
+      document.cookie = "isAuthenticated=true; path=/; max-age=" + (60 * 60 * 24 * 7); 
       router.push("/"); // Redirect to dashboard
     } else {
       toast({
@@ -61,6 +64,8 @@ export function LoginForm() {
         variant: "destructive",
       });
        localStorage.removeItem("isAuthenticated");
+       // Clear the cookie on failed login attempt
+       document.cookie = "isAuthenticated=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     }
   }
 
@@ -129,3 +134,4 @@ export function LoginForm() {
     </Form>
   );
 }
+
