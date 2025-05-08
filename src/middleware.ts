@@ -69,4 +69,3 @@ export const config = {
     // Removing the explicit '/' entry to avoid potential conflicts or redundancy.
   ],
 };
-

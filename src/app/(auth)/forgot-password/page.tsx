@@ -11,7 +11,7 @@ export default function ForgotPasswordPage() {
         <Card className="overflow-hidden">
           <CardHeader className="text-center">
              <div className="mx-auto mb-4 flex items-center justify-center">
-                <Icon name="KeyRound" className="w-12 h-12 text-primary" /> {/* Changed icon */}
+                <Icon name="KeyRound" className="w-12 h-12 text-primary" />
              </div>
             <CardTitle className="text-3xl font-bold">Forgot Password?</CardTitle>
             <CardDescription>Enter your email address below and we&apos;ll send you a link to reset your password.</CardDescription>

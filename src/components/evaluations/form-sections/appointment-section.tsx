@@ -33,7 +33,7 @@ export function AppointmentSection({ control }: AppointmentSectionProps) {
                   variant={"outline"}
                   className={cn(
                     "w-full justify-start text-left font-normal",
-                    field && !field.value && "text-muted-foreground"
+                    field && !field.value && "text-muted-foreground" // Check if field exists before accessing value
                   )}
                 >
                   <CalendarDays className="mr-2 h-4 w-4" />

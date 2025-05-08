@@ -32,7 +32,7 @@ import {
   FileEdit,
   Trash2,
   MoreHorizontal,
-  ActivitySquare,
+  ActivitySquare, // Changed from SquareActivity to ActivitySquare
   Github,
   Linkedin,
   Facebook,
@@ -68,12 +68,12 @@ export const Icons = {
   UploadCloud,
   DownloadCloud,
   Eye,
-  EyeOff, // Added EyeOff
+  EyeOff,
   Search,
   FileEdit,
   Trash2,
   MoreHorizontal,
-  ActivitySquare,
+  ActivitySquare, // Changed from SquareActivity to ActivitySquare
   Github,
   Linkedin,
   Facebook,
