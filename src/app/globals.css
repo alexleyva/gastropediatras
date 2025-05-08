@@ -107,3 +107,8 @@
     font-family: var(--font-nunito), var(--font-geist-sans), sans-serif;
   }
 }
+
+/* Custom utility for gradient text if needed */
+.text-gradient-primary {
+  @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+}

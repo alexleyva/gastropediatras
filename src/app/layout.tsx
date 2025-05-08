@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { Nunito, Geist_Mono } from 'next/font/google';
 import './globals.css';
-import { MainLayout } from '@/components/layout/main-layout';
+// import { MainLayout } from '@/components/layout/main-layout'; // MainLayout removed from here
 import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from '@/config/site';
+// import { AuthProvider } from '@/contexts/auth-context'; // Placeholder for AuthProvider
 
 const nunito = Nunito({
   subsets: ['latin'],
@@ -33,9 +34,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${nunito.variable} ${geistMono.variable} font-sans antialiased`}>
-        <MainLayout>
+        {/* <AuthProvider> */} {/* AuthProvider would wrap children if implemented */}
           {children}
-        </MainLayout>
+        {/* </AuthProvider> */}
         <Toaster />
       </body>
     </html>

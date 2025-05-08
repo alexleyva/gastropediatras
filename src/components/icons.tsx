@@ -30,7 +30,13 @@ import {
   FileEdit,
   Trash2,
   MoreHorizontal,
-  ActivitySquare
+  ActivitySquare,
+  Github,
+  Linkedin,
+  Facebook,
+  Twitter,
+  KeyRound,
+  Mail,
 } from 'lucide-react';
 
 export const Icons = {
@@ -64,7 +70,13 @@ export const Icons = {
   FileEdit,
   Trash2,
   MoreHorizontal,
-  ActivitySquare
+  ActivitySquare,
+  Github,
+  Linkedin,
+  Facebook,
+  Twitter,
+  KeyRound,
+  Mail,
 };
 
 export type IconKeys = keyof typeof Icons;
