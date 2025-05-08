@@ -1,5 +1,7 @@
+
 "use client";
 
+import { useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -29,6 +31,8 @@ type LoginFormValues = z.infer<typeof loginSchema>;
 export function LoginForm() {
   const router = useRouter();
   const { toast } = useToast();
+  const [showPassword, setShowPassword] = useState(false);
+
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -60,6 +64,8 @@ export function LoginForm() {
     }
   }
 
+  const togglePasswordVisibility = () => setShowPassword(!showPassword);
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -88,7 +94,22 @@ export function LoginForm() {
               <FormControl>
                 <div className="relative">
                    <Icon name="KeyRound" className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                   <Input type="password" placeholder="password" {...field} className="pl-10" />
+                   <Input 
+                    type={showPassword ? "text" : "password"} 
+                    placeholder="password" 
+                    {...field} 
+                    className="pl-10 pr-10" 
+                  />
+                   <Button 
+                    type="button" 
+                    variant="ghost" 
+                    size="icon" 
+                    onClick={togglePasswordVisibility} 
+                    className="absolute right-1 top-1/2 h-7 w-7 -translate-y-1/2 text-muted-foreground hover:bg-transparent"
+                    aria-label={showPassword ? "Hide password" : "Show password"}
+                  >
+                    <Icon name={showPassword ? "EyeOff" : "Eye"} className="h-4 w-4" />
+                  </Button>
                 </div>
               </FormControl>
               <FormMessage />
@@ -104,13 +125,6 @@ export function LoginForm() {
           {form.formState.isSubmitting ? "Logging In..." : "LOG IN"}
         </Button>
         
-        {/* Removed Sign Up Link and Social Logins as per user request */}
-        {/* <p className="text-center text-sm text-muted-foreground">
-          Don&apos;t have an account?{" "}
-          <Button variant="link" asChild className="p-0">
-            <Link href="/signup">Sign Up</Link>
-          </Button>
-        </p> */}
       </form>
     </Form>
   );

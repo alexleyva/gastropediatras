@@ -1,3 +1,4 @@
+
 import type { LucideProps } from 'lucide-react';
 import {
   LayoutDashboard,
@@ -26,6 +27,7 @@ import {
   UploadCloud,
   DownloadCloud,
   Eye,
+  EyeOff, // Added EyeOff
   Search,
   FileEdit,
   Trash2,
@@ -66,6 +68,7 @@ export const Icons = {
   UploadCloud,
   DownloadCloud,
   Eye,
+  EyeOff, // Added EyeOff
   Search,
   FileEdit,
   Trash2,
