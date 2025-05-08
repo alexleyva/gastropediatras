@@ -1,7 +1,6 @@
-
 "use client";
 
-import * as z from "zod";
+import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
@@ -73,7 +72,7 @@ export function LoginForm() {
               <FormControl>
                 <div className="relative">
                   <Icon name="Mail" className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                  <Input placeholder="Email" {...field} className="pl-10"/>
+                  <Input placeholder="email@example.com" {...field} className="pl-10"/>
                 </div>
               </FormControl>
               <FormMessage />
@@ -89,7 +88,7 @@ export function LoginForm() {
               <FormControl>
                 <div className="relative">
                    <Icon name="KeyRound" className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                   <Input type="password" placeholder="Password" {...field} className="pl-10" />
+                   <Input type="password" placeholder="password" {...field} className="pl-10" />
                 </div>
               </FormControl>
               <FormMessage />
@@ -104,15 +103,15 @@ export function LoginForm() {
         <Button type="submit" className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 text-white" disabled={form.formState.isSubmitting}>
           {form.formState.isSubmitting ? "Logging In..." : "LOG IN"}
         </Button>
-
-        <p className="text-center text-sm text-muted-foreground">
+        
+        {/* Removed Sign Up Link and Social Logins as per user request */}
+        {/* <p className="text-center text-sm text-muted-foreground">
           Don&apos;t have an account?{" "}
           <Button variant="link" asChild className="p-0">
             <Link href="/signup">Sign Up</Link>
           </Button>
-        </p>
+        </p> */}
       </form>
     </Form>
   );
 }
-

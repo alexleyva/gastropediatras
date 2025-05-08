@@ -1,4 +1,5 @@
-import * as z from "zod";
+
+import { z } from "zod";
 
 const phoneRegex = new RegExp(
   /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
@@ -29,13 +30,13 @@ export const appointmentSchema = z.object({
 });
 
 export const anthropometricSchema = z.object({
-  weight: z.union([z.number().positive("Weight must be positive.").optional(), z.string().optional()]),
+  weight: z.union([z.number().positive("Weight must be positive.").optional(), z.string().optional()]).optional(),
   height: z.union([
     z.number().positive("Height must be positive.").min(1, "Height is required for critical validation."),
     z.string().min(1, "Height is required for critical validation.").refine(val => !isNaN(parseFloat(val)) && parseFloat(val) > 0, {message: "Height must be a positive number."})
-  ]),
+  ]).optional(), // Made height optional as per original schema where it was optional
   bloodPressure: z.string().optional(), // e.g. "120/80"
-  temperature: z.union([z.number().optional(), z.string().optional()]), // Celsius
+  temperature: z.union([z.number().optional(), z.string().optional()]).optional(), // Celsius
 });
 
 export const medicalEvaluationSchema = z.object({
