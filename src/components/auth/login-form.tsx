@@ -105,7 +105,7 @@ export function LoginForm() {
                     variant="ghost" 
                     size="icon" 
                     onClick={togglePasswordVisibility} 
-                    className="absolute right-1 top-1/2 h-7 w-7 -translate-y-1/2 text-muted-foreground hover:bg-transparent"
+                    className="absolute right-1 top-1/2 h-7 w-7 -translate-y-1/2 text-muted-foreground hover:bg-transparent hover:text-primary"
                     aria-label={showPassword ? "Hide password" : "Show password"}
                   >
                     <Icon name={showPassword ? "EyeOff" : "Eye"} className="h-4 w-4" />
@@ -117,7 +117,7 @@ export function LoginForm() {
           )}
         />
         <div className="flex items-center justify-end">
-          <Button variant="link" size="sm" asChild className="p-0 text-sm">
+          <Button variant="link" size="sm" asChild className="p-0 text-sm text-primary hover:underline">
             <Link href="/forgot-password">Forgot your password?</Link>
           </Button>
         </div>
@@ -129,3 +129,4 @@ export function LoginForm() {
     </Form>
   );
 }
+

@@ -80,3 +80,10 @@ export const evaluationSchema = z.object({
 });
 
 export type EvaluationFormValues = z.infer<typeof evaluationSchema>;
+
+
+export const forgotPasswordSchema = z.object({
+  email: z.string().email({ message: "Please enter a valid email address." }),
+});
+
+export type ForgotPasswordFormValues = z.infer<typeof forgotPasswordSchema>;
