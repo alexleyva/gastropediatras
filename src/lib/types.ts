@@ -26,8 +26,9 @@ export interface AppointmentDetails {
 export interface AnthropometricData {
   weight?: number | string; // kg
   height?: number | string; // cm
-  bloodPressure?: string; // e.g., "120/80"
   temperature?: number | string; // Celsius
+  cardiacFrequency?: number | string; // Beats per minute
+  oxygenSaturation?: number | string; // Percentage (SpO2)
 }
 
 export interface MedicalEvaluation {

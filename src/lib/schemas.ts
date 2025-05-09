@@ -34,9 +34,10 @@ export const anthropometricSchema = z.object({
   height: z.union([
     z.number().positive("Height must be positive.").min(1, "Height is required for critical validation."),
     z.string().min(1, "Height is required for critical validation.").refine(val => !isNaN(parseFloat(val)) && parseFloat(val) > 0, {message: "Height must be a positive number."})
-  ]).optional(), // Made height optional as per original schema where it was optional
-  bloodPressure: z.string().optional(), // e.g. "120/80"
+  ]).optional(),
   temperature: z.union([z.number().optional(), z.string().optional()]).optional(), // Celsius
+  cardiacFrequency: z.union([z.number().positive("Cardiac frequency must be positive.").optional(), z.string().optional()]).optional(), // Beats per minute
+  oxygenSaturation: z.union([z.number().positive("Oxygen saturation must be positive.").min(0).max(100).optional(), z.string().optional()]).optional(), // Percentage
 });
 
 export const medicalEvaluationSchema = z.object({

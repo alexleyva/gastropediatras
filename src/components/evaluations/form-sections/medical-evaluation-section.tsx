@@ -77,15 +77,21 @@ export function MedicalEvaluationSection({ control }: MedicalEvaluationSectionPr
                 />
                 <FormInputWrapper
                   control={control}
-                  name="medicalEvaluation.anthropometrics.bloodPressure"
-                  label="Blood Pressure"
-                  renderInput={(field) => <Input {...field} placeholder="e.g., 110/70" />}
-                />
-                <FormInputWrapper
-                  control={control}
                   name="medicalEvaluation.anthropometrics.temperature"
                   label="Temperature (°C)"
                   renderInput={(field) => <Input type="number" step="0.1" {...field} placeholder="e.g., 36.5" onChange={e => field.onChange(e.target.value === '' ? undefined : Number(e.target.value))} value={field.value ?? ""} />}
+                />
+                 <FormInputWrapper
+                  control={control}
+                  name="medicalEvaluation.anthropometrics.cardiacFrequency"
+                  label="Cardiac Frequency (Fc)"
+                  renderInput={(field) => <Input type="number" step="1" {...field} placeholder="e.g., 80 bpm" onChange={e => field.onChange(e.target.value === '' ? undefined : Number(e.target.value))} value={field.value ?? ""} />}
+                />
+                <FormInputWrapper
+                  control={control}
+                  name="medicalEvaluation.anthropometrics.oxygenSaturation"
+                  label="Oxygen Saturation (SpO2 %)"
+                  renderInput={(field) => <Input type="number" step="1" min="0" max="100" {...field} placeholder="e.g., 98" onChange={e => field.onChange(e.target.value === '' ? undefined : Number(e.target.value))} value={field.value ?? ""} />}
                 />
               </div>
             </div>

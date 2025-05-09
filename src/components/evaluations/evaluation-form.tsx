@@ -54,8 +54,9 @@ const defaultValues: Partial<FullEvaluationRecord> = {
     anthropometrics: {
       weight: "",
       height: "",
-      bloodPressure: "",
       temperature: "",
+      cardiacFrequency: "",
+      oxygenSaturation: "",
     },
     generalObservations: "",
     systemsReview: "",
